@@ -1,4 +1,4 @@
-class Sources(object):
+class Sources:
     """
     Sources class to define sources object
     """
@@ -12,15 +12,16 @@ class Sources(object):
         self.country = country
 
 
-class Articles(object):
+class Articles:
     """
     Articles class to define articles object
     """
 
-    def __init__(self, author, title, description, url, urlToImage, publishedAt):
+    def __init__(self, author, title, description, url, urlToImage, publishedAt, content):
         self.author = author
         self.title = title
         self.description = description
         self.url = url
         self.urlToImage = urlToImage
         self.publishedAt = publishedAt
+        self.content = content

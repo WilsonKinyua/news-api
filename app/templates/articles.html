@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+ {% for article in articles %}
+ <img src="{{ article.urlToImage }}" alt="" srcset="" style="height: 10px;">
+    <a href="{{ article.url }}">{{ article.author }}</a> <br>
+ {% endfor %}   
+{% endblock %}

@@ -25,7 +25,6 @@ A web application where users can view the latest news from different sources. I
 
 ```
 python3.8 -m venv --without-pip virtual
-
 ```
 
 - To activate the virtual environment
@@ -48,7 +47,6 @@ chmod a+x start.sh
 
 ```
 ./start.sh
-
 ```
 
 - open the browser and navigate to http://127.0.0.1:5000/ to see the application in action
@@ -89,8 +87,8 @@ The following languages have been used on this project:
   <img src="./screenshots/6.png" alt="screenshot" />
 
 - Fully phone responsive
-    <br>
-    <img src="./screenshots/7.png" alt="screenshot" />
+  <br>
+  <img src="./screenshots/7.png" alt="screenshot" />
 
 ## Known Bugs
 

@@ -11,7 +11,7 @@ base_url_articles = None
 
 
 def configure_request(app):
-    global api_key, base_url
+    global api_key, base_url_source,base_url_articles
     base_url_source = app.config['NEWS_API_SOURCE_URL']
     base_url_articles = app.config['NEWS_API_ARTICLES_URL']
     api_key = app.config['NEWS_API_KEY']
@@ -70,7 +70,7 @@ def get_source(): # function to get the source
     Function that gets the json response to our url request
     '''
     # get_source_url = base_url_source.format(api_key)
-    get_source_url = 'https://newsapi.org/v2/sources?apiKey=5c15b5d05c5d4f25b57112dbdbff3016'
+    get_source_url = 'https://newsapi.org/v2/sources?apiKey='
 
     with urllib.request.urlopen(get_source_url) as url:
         get_source_data = url.read()
@@ -91,7 +91,7 @@ def get_articles(source_id):
     Function that gets the json response to our url request
     '''
     # get_articles_url = base_url_articles.format(source_id, api_key)
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=5c15b5d05c5d4f25b57112dbdbff3016'.format(source_id)
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey='.format(source_id)
     # get_articles_url = base_url_articles.format(source_id, api_key)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -104,3 +104,24 @@ def get_articles(source_id):
             articles_results = process_results_articles(articles_results_list)
 
     return articles_results
+
+
+#get news by category
+# def get_news_by_category(category):
+#     '''
+#     Function that gets the json response to our url request
+#     '''
+#     # get_news_by_category_url = base_url_articles.format(category, api_key)
+#     get_news_by_category_url = 'https://newsapi.org/v2/top-headlines?country=us&category={}&apiKey='.format(category)
+#     # get_news_by_category_url = base_url_articles.format(category, api_key)
+#     with urllib.request.urlopen(get_news_by_category_url) as url:
+#         get_news_by_category_data = url.read()
+#         get_news_by_category_response = json.loads(get_news_by_category_data)
+
+#         news_by_category_results = None
+
+#         if get_news_by_category_response['articles']:
+#             news_by_category_results_list = get_news_by_category_response['articles']
+#             news_by_category_results = process_results_articles(news_by_category_results_list)
+
+#     return news_by_category_results

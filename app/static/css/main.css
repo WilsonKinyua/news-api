@@ -3,7 +3,6 @@
 body {
   margin: 0;
   padding: 0;
-  /* overflow: hidden; */
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -39,11 +38,6 @@ a {
   background-color: #e12235;
 }
 
-/* .btn-secondary {
-    background-color: #aa35d6;
-  border-color: #aa35d6;
-} */
-/* navbar */
 .navbar-brand {
   font-size: 2rem;
   color: white;
@@ -68,7 +62,6 @@ a {
   font-weight: 400;
 }
 
-/* homepage */
 .card-image {
   background-position: center;
   background-repeat: no-repeat;
@@ -77,7 +70,7 @@ a {
 }
 
 .homepage .news-headings {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(29, 29, 29, 0.3);
   border-radius: 10px;
   padding: 5px;
 }
@@ -106,10 +99,7 @@ a {
   font-weight: 900;
   color: #fff;
 }
-/* .news-right .card-image {
-  background-color: rgb(0, 0, 0);
-} */
-/* sources */
+
 .card {
   background: #fff none repeat scroll 0 0;
   border: 2px solid #fff;
@@ -133,8 +123,6 @@ a {
   height: 460px;
 }
 
-/* footer */
-
 footer {
   background: #aa35d6;
   padding: 15px;
@@ -146,18 +134,15 @@ footer .justify-content-center h5 a {
   color: white;
 }
 
-/* Tablet:768px. */
 @media (min-width: 768px) and (max-width: 991px) {
   footer h5 {
     display: none;
   }
   footer p {
-    /* display the paragraph*/
     display: block;
   }
 }
 
-/* Mobile :320px. */
 @media (max-width: 767px) {
   footer h5 {
     display: none;
@@ -166,5 +151,3 @@ footer .justify-content-center h5 a {
     display: block;
   }
 }
-
-/* rgba(45, 45, 45, 0.63) */

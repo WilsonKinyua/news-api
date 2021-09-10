@@ -4,27 +4,16 @@
 
 
 <!-- homepage -->
-<div class="homepage mt-2">
+<div class="homepage mt-4">
     <div class="m-2">
         <div class="row">
-            <div class="col-md-6">
-                {% for bbc in bbc_home_picture %}
-                <div class="card-image p-4 mb-3" style="background-image: url(  {{bbc.urlToImage}}  );">
-                    <div class="headline-text">
-                        <button class="btn btn-warning btn-sm mt-5">BBC News</button>
-                        <h4 class="news-headings mt-2"><a target="_blank" href="{{ bbc.url }}">{{ bbc.title }}</a>
-                        </h4>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
             <div class="col-md-6 news-right">
                 <div class="row">
-                    {% for cnn_news in cnn %}
+                    {% for cnn_news in cbc_news %}
                     <div class="col-md-6">
                         <div class="card-image p-4 mb-3" style="background-image: url({{cnn_news.urlToImage}});">
                             <div class="headline-">
-                                <button class="btn btn-primary btn-sm mt-1">CNN News</button>
+                                <button class="btn btn-primary btn-sm mt-1">CBC News</button>
                                 <h5 class="news-headings mt-2"><a target="_blank"
                                         href="{{cnn_news.url}}">{{cnn_news.title}}</a>
                                 </h5>
@@ -34,12 +23,12 @@
                     {% endfor %}
                 </div>
                 <div class="row">
-                    {% for google in google %}
+                    {% for bcc in bcc %}
                     <div class="col-md-6">
-                        <div class="card-image p-4 mb-3" style="background-image: url({{google.urlToImage}});">
+                        <div class="card-image p-4 mb-3" style="background-image: url({{bcc.urlToImage}});">
                             <div class="headline-">
-                                <button class="btn btn-primary btn-sm mt-1">Google News</button>
-                                <h5 class="news-headings mt-2"><a target="_blank" href="{{google.url}}">{{ google.title
+                                <button class="btn btn-primary btn-sm mt-1">BBC News</button>
+                                <h5 class="news-headings mt-2"><a target="_blank" href="{{bcc.url}}">{{ bcc.title
                                         }}</a>
                                 </h5>
                             </div>
@@ -48,6 +37,17 @@
                     {% endfor %}
                 </div>
             </div>
+            <div class="col-md-6">
+                {% for cnn in cnn_home %}
+                <div class="card-image p-4 mb-3" style="background-image: url(  {{cnn.urlToImage}}  );">
+                    <div class="headline-text">
+                        <button class="btn btn-danger btn-sm mt-4">CNN News</button>
+                        <h4 class="news-headings mt-2"><a target="_blank" href="{{cnn.url }}">{{cnn.title }}</a>
+                        </h4>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
@@ -55,7 +55,7 @@
 <!-- sources -->
 <div class="sources m-2">
     <div class="card p-2">
-        <h3 class="text-uppercase headings">news sources</h3>
+        <h3 class="text-uppercase headings">top news sources</h3>
         <div class="row">
             <div class="col-md-12">
                 {{ macro.displayNewsSources(sources) }}
@@ -63,19 +63,18 @@
         </div>
     </div>
 </div>
-
+<!-- Al Jazeera English News -->
+<div class="top-news m-2">
+    <h3 class="text-uppercase headings text-center mt-5 mb-4">top Al Jazeera English News</h3>
+    <div class="row">
+        {{ macro.displayNewsSourceArticles(aljazeera) }}
+    </div>
+</div>
 <!-- top  bbc news-->
 <div class="top-news m-2">
     <h3 class="text-uppercase headings text-center mt-5 mb-4">top BBC News</h3>
     <div class="row">
         {{ macro.displayNewsSourceArticles(bbc_news) }}
-    </div>
-</div>
-<!-- Al Jazeera English News -->
-<div class="top-news m-2">
-    <h3 class="text-uppercase headings text-center mt-5 mb-4">top Al Jazeera English News</h3>
-    <div class="row">
-        {{ macro.displayNewsSourceArticles(aljazeera_english) }}
     </div>
 </div>
 {% endblock %}

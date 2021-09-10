@@ -1,14 +1,12 @@
 import urllib.request
 import json
 from .models import Sources, Articles
-import os
-# import news api source url from config.py
 
 # getting api key
 api_key = 'e05ca232a09f4c6394d6716dbcde7fef'
-# getting news base url
+# getting news base url for the sources
 base_url_source = None
-# getting news articles base url
+# getting news articles base url from the source id
 base_url_articles = None
 
 
@@ -21,11 +19,7 @@ def configure_request(app):
 
 def process_results_sources(source_list):
     '''
-    Function that processes the source result and transform them to a list of Objects
-    Args:
-        source_list: A list of dictionaries that contain source details
-    Returns:
-        source_results: A list of source objects
+    Function that processes the source list result and transform them to a list of Objects
     '''
     source_results = []
     for source_item in source_list:
@@ -35,7 +29,6 @@ def process_results_sources(source_list):
         url = source_item.get('url')
         category = source_item.get('category')
         language = source_item.get('language')
-        # country = source_item.get('country')
 
         source_object = Sources(
             id, name, description, url, category, language)
@@ -46,11 +39,7 @@ def process_results_sources(source_list):
 
 def process_results_articles(articles_list):
     '''
-    Function that processes the articles result and transform them to a list of Objects
-    Args:
-        articles_list: A list of dictionaries that contain articles details
-    Returns:
-        articles_results: A list of articles objects
+    Function that processes the articles list result and transform them to a list of Objects
     '''
     articles_results = []
     for article_item in articles_list:
@@ -70,12 +59,10 @@ def process_results_articles(articles_list):
     return articles_results
 
 
-def get_source():  # function to get the source
+def get_source():  # get all sources from the news api
     '''
     Function that gets the json response to our url request
     '''
-    # get api key from the config file
-    # get_source_url = base_url_source.format('api_key')
     get_source_url = 'https://newsapi.org/v2/sources?apiKey={}'.format(api_key)
     print(get_source_url)
 
@@ -95,15 +82,12 @@ def get_source():  # function to get the source
 # get articles by source id
 def get_articles(source_id):
     '''
-    Function that gets the json response to our url request
+        Function that gets the json response to our url request using the source id
     '''
-    # get_articles_url = base_url_articles.format(source_id, api_key)
     get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(
         source_id, api_key)
-    # get_articles_url = base_url_articles.format(source_id, api_key)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
-        # load the data into a json object
         get_articles_response = json.loads(get_articles_data)
 
         articles_results = None
@@ -111,21 +95,17 @@ def get_articles(source_id):
         if get_articles_response['articles']:
             articles_results_list = get_articles_response['articles']
             articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
+    return articles_results
 
 
-# get news relating to specific source and page size
-
-def get_articles_from_source(source, pageSize):
+def get_articles_from_source_selected(source, pageLimitSize):
     '''
-    Function that gets the json response to our url request
+    Function that gets the json response to our url request using the source id and page size
     '''
     get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}&pageSize={}'.format(source,
-                                                                                                      api_key, pageSize)
-    # get_articles_url = base_url_articles.format(source_id, api_key)
+                                                                                                      api_key, pageLimitSize)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
-        # load the data into a json object
         get_articles_response = json.loads(get_articles_data)
 
         articles_results = None
@@ -133,21 +113,17 @@ def get_articles_from_source(source, pageSize):
         if get_articles_response['articles']:
             articles_results_list = get_articles_response['articles']
             articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
-
-# get news depending on category
+    return articles_results
 
 
-def get_articles_depending_on_category(category):
+def get_articles_depending_on_category_of_the_source(category):
     '''
-    Function that gets the json response to our url request
+    Function that gets the json response to our url request using the category 
     '''
     get_articles_url = 'https://newsapi.org/v2/top-headlines?category={}&apiKey={}'.format(
         category, api_key)
-    # get_articles_url = base_url_articles.format(source_id, api_key)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
-        # load the data into a json object
         get_articles_response = json.loads(get_articles_data)
 
         articles_results = None
@@ -155,4 +131,4 @@ def get_articles_depending_on_category(category):
         if get_articles_response['articles']:
             articles_results_list = get_articles_response['articles']
             articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
+    return articles_results

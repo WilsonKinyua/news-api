@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda+One&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+  max-width: 100%;
+  overflow-x: hidden;
+}
+:root {
+  --main-color: #bb1919;
+  --btn: #aa35d6;
+}
+
+.color-main {
+  color: var(--btn);
+}
+
+.headings {
+  font-family: "Merienda One", cursive;
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #aa35d6;
+  border-color: #aa35d6;
+}
+
+.btn-primary:hover {
+  background-color: #60167a;
+  border-color: #60167a;
+}
+
+.btn-info {
+  background-color: #e12235;
+}
+
+/* .btn-secondary {
+    background-color: #aa35d6;
+  border-color: #aa35d6;
+} */
+/* navbar */
+.navbar-brand {
+  font-size: 2rem;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Lobster", cursive;
+}
+.navbar-brand:hover {
+  color: whitesmoke;
+}
+.navbar-expand-lg {
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+}
+
+.navbar-expand-lg li a {
+  color: white;
+}
+
+.nav-right {
+  margin-right: 50px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/* homepage */
+.card-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.headline-text {
+  margin-top: 200px;
+  color: white;
+}
+
+.news-headings a {
+  color: white;
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+
+.news-right .news-headings a {
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.news-right .card-image {
+  height: 195px;
+}
+
+/* sources */
+.card {
+  background: #fff none repeat scroll 0 0;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 11px 5px rgb(103 58 183 / 10%);
+  margin-bottom: 1px;
+  padding: 1px 1px;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 0 11px 5px rgba(70, 41, 121, 0.25);
+  background: linear-gradient(-19deg, rgba(235, 174, 8, 0.95) 0px);
+}
+
+footer {
+  background: #aa35d6;
+  padding: 15px;
+}
+
+footer .justify-content-center h5 a {
+  margin-right: 14px;
+  font-size: 15px;
+  color: white;
+}

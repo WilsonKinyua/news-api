@@ -113,6 +113,11 @@ a {
   box-shadow: 0 0 11px 5px rgba(70, 41, 121, 0.25);
   background: linear-gradient(-19deg, rgba(235, 174, 8, 0.95) 0px);
 }
+.top-news .card {
+  height: 430px;
+}
+
+/* footer */
 
 footer {
   background: #aa35d6;

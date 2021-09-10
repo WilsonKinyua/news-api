@@ -15,10 +15,11 @@ def index():
     title = 'Home - Welcome to The best News Highlighter'
     return render_template('index.html', title=title, sources=sources)
 
+
 @main.route('/source/articles/<source_id>')
 def articles(source_id):
     '''
-    View articles page function that returns the articles page and its data
+    View articles page function that returns the articles page from a source
     '''
     # Getting articles based on the source id
     articles = get_articles(source_id)

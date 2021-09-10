@@ -16,10 +16,13 @@
 
 <div class="col-md-3">
     <div class="card mb-4">
+        {% if article.urlToImage %}
         <img src="{{ article.urlToImage }}" class="card-img-top" alt="News Image">
+        {% endif %}
+
         <div class="card-body">
             <h5 class="">{{ article.title }}</h5>
-            <p class="card-text"><small>{{ article.description }}</small></p>
+            <p class="card-text"><small>{{ article.description[:110] }}...</small></p>
             <div class="d-flex justify-content-around">
                 <div>
                     <p><strong><span class="badge rounded-pill bg-warning text-dark"><small>{{ article.publishedAt

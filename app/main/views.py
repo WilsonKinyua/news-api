@@ -15,7 +15,7 @@ def index():
     title = 'Home - Welcome to The best News Highlighter'
     return render_template('index.html', title=title, sources=sources)
 
-@main.route('/articles/<source_id>')
+@main.route('/source/articles/<source_id>')
 def articles(source_id):
     '''
     View articles page function that returns the articles page and its data

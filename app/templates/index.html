@@ -1,5 +1,5 @@
+{% import 'macros.html' as macro%}
 {% extends "base.html" %}
-
 {% block content %}
 
 
@@ -78,78 +78,7 @@
             <h3 class="text-uppercase headings">news sources</h3>
             <div class="row">
                 <div class="col-md-12">
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera </a>
-                    <a href="" class="btn btn-primary mb-2">Al Jazeera English</a>
+                   {{ macro.displayNewsSources(sources) }}
                 </div>
             </div>
         </div>

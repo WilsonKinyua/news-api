@@ -1,0 +1,11 @@
+{% import 'macros.html' as macro%}
+{% extends "base.html" %}
+{% block content %}
+<!-- top  bbc news-->
+<div class="top-news m-2">
+   <h3 class="text-uppercase headings text-center mt-5 mb-4">all news articles <br> <small>({{ title }})</small></h3>
+   <div class="row">
+      {{ macro.displayNewsSourceArticles(articles) }}
+   </div>
+</div>
+{% endblock %}

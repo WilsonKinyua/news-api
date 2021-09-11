@@ -1,7 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from . import main
-from ..requests import get_source, get_articles, get_articles_bbc, get_articles_cnn, get_articles_google, get_articles_business,get_articles_sports
-# from ..models import Source, Article
+from ..requests import get_source, get_articles, get_articles_bbc, get_articles_cnn, get_articles_google, get_articles_business,get_articles_science, get_articles_sports, get_articles_entertainment, get_articles_technology, get_articles_health, get_articles_health
 
 
 @main.route('/')
@@ -57,6 +56,7 @@ def business():
                            business=business
                            )
 
+
 @main.route('/sports')
 def sports():
     '''
@@ -67,4 +67,56 @@ def sports():
     return render_template('sports.html',
                            title=title,
                            sports=sports
+                           )
+
+
+@main.route('/entertainment')
+def entertainment():
+    '''
+    View entertainment page function that returns the entertainment page and its data
+    '''
+    entertainment = get_articles_entertainment()
+    title = 'Entertainment - Welcome to The best Hot News in the world'
+    return render_template('entertainment.html',
+                           title=title,
+                           entertainment=entertainment
+                           )
+
+
+@main.route('/technology')
+def technology():
+    '''
+    View technology page function that returns the technology page and its data
+    '''
+    technology = get_articles_technology()
+    title = 'Technology - Welcome to The best Hot News in the world'
+    return render_template('technology.html',
+                           title=title,
+                           technology=technology
+                           )
+
+
+@main.route('/health')
+def health():
+    '''
+    View health page function that returns the health page and its data
+    '''
+    health = get_articles_science()
+    title = 'Health - Welcome to The best Hot News in the world'
+    return render_template('health.html',
+                           title=title,
+                           health=health
+                           )
+
+
+@main.route('/science')
+def science():
+    '''
+    View science page function that returns the science page and its data
+    '''
+    science = get_articles_health()
+    title = 'Science - Welcome to The best Hot News in the world'
+    return render_template('science.html',
+                           title=title,
+                           science=science
                            )

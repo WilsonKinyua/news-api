@@ -1,4 +1,4 @@
-import urllib.request 
+import urllib.request
 import json
 from .models import Sources, Articles
 
@@ -98,6 +98,7 @@ def get_articles(source_id):
     # get_articles_url = base_url_articles.format(source_id, api_key)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
+        # load the data into a json object
         get_articles_response = json.loads(get_articles_data)
 
         articles_results = None
@@ -105,10 +106,48 @@ def get_articles(source_id):
         if get_articles_response['articles']:
             articles_results_list = get_articles_response['articles']
             articles_results = process_results_articles(articles_results_list)
+    return articles_results  # return the results
 
-    return articles_results
+
+# get bbc only one article
+def get_articles_bbc():
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=5c15b5d05c5d4f25b57112dbdbff3016&pageSize=1'
+    # get_articles_url = base_url_articles.format(source_id, api_key)
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        # load the data into a json object
+        get_articles_response = json.loads(get_articles_data)
+
+        articles_results = None
+
+        if get_articles_response['articles']:
+            articles_results_list = get_articles_response['articles']
+            articles_results = process_results_articles(articles_results_list)
+    return articles_results  # return the results
+
+# get cnn only two article
 
 
+def get_articles_cnn():
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=5c15b5d05c5d4f25b57112dbdbff3016&pageSize=2'
+    # get_articles_url = base_url_articles.format(source_id, api_key)
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        # load the data into a json object
+        get_articles_response = json.loads(get_articles_data)
+
+        articles_results = None
+
+        if get_articles_response['articles']:
+            articles_results_list = get_articles_response['articles']
+            articles_results = process_results_articles(articles_results_list)
+    return articles_results  # return the results
 # get news by category
 # def get_news_by_category(category):
 #     '''

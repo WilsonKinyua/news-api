@@ -3,67 +3,56 @@
 {% block content %}
 
 
-    <!-- homepage -->
-    <div class="homepage mt-2">
-        <div class="m-2">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card-image p-4 mb-3"
-                        style="background-image: url(https://1.bp.blogspot.com/-IW8OiqJYe1c/YE0bk4-CfRI/AAAAAAAAFig/aH-WV6-3eaE9Fqf7GOkOrBLL008giPfZQCLcBGAsYHQ/s500-rw/newspaper.jpg);">
-                        <div class="headline-text">
-                            <button class="btn btn-warning btn-sm mt-5">Business</button>
-                            <h4 class="news-headings mt-2"><a href="">#NotSoBar: How Kenyans defy curfew and risk their
-                                    lives all for a drink</a>
-                            </h4>
-                        </div>
+<!-- homepage -->
+<div class="homepage mt-2">
+    <div class="m-2">
+        <div class="row">
+            <div class="col-md-6">
+                {% for bbc in bbc_home_picture %}
+                <div class="card-image p-4 mb-3" style="background-image: url(  {{bbc.urlToImage}}  );">
+                    <div class="headline-text">
+                        <button class="btn btn-warning btn-sm mt-5">BBC</button>
+                        <h4 class="news-headings mt-2"><a target="_blank" href="{{ bbc.url }}">{{ bbc.title }}</a>
+                        </h4>
                     </div>
                 </div>
-                <div class="col-md-6 news-right">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card-image p-4 mb-3"
-                                style="background-image: url(https://1.bp.blogspot.com/-IW8OiqJYe1c/YE0bk4-CfRI/AAAAAAAAFig/aH-WV6-3eaE9Fqf7GOkOrBLL008giPfZQCLcBGAsYHQ/s500-rw/newspaper.jpg);">
-                                <div class="headline-">
-                                    <button class="btn btn-primary btn-sm mt-1">Business</button>
-                                    <h5 class="news-headings mt-2"><a href="">#NotSoBar: How Kenyans defy curfew and
-                                            risk their
-                                            lives all for a drink</a>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-image p-4 mb-3"
-                                style="background-image: url(https://1.bp.blogspot.com/-IW8OiqJYe1c/YE0bk4-CfRI/AAAAAAAAFig/aH-WV6-3eaE9Fqf7GOkOrBLL008giPfZQCLcBGAsYHQ/s500-rw/newspaper.jpg);">
-                                <div class="headline-">
-                                    <button class="btn btn-primary btn-sm mt-1">Business</button>
-                                    <h5 class="news-headings mt-2"><a href="">#NotSoBar: How Kenyans defy curfew and</a>
-                                    </h5>
-                                </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-6 news-right">
+                <div class="row">
+                    {% for cnn_news in cnn %}
+                    <div class="col-md-6">
+                        <div class="card-image p-4 mb-3" style="background-image: url({{cnn_news.urlToImage}});">
+                            <div class="headline-">
+                                <button class="btn btn-primary btn-sm mt-1">CNN</button>
+                                <h5 class="news-headings mt-2"><a target="_blank"
+                                        href="{{cnn_news.url}}">{{cnn_news.title}}</a>
+                                </h5>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card-image p-4 mb-3"
-                                style="background-image: url(https://1.bp.blogspot.com/-IW8OiqJYe1c/YE0bk4-CfRI/AAAAAAAAFig/aH-WV6-3eaE9Fqf7GOkOrBLL008giPfZQCLcBGAsYHQ/s500-rw/newspaper.jpg);">
-                                <div class="headline-">
-                                    <button class="btn btn-primary btn-sm mt-1">Business</button>
-                                    <h5 class="news-headings mt-2"><a href="">#NotSoBar: How Kenyans defy curfew and
-                                            risk their
-                                            lives all for a drink</a>
-                                    </h5>
-                                </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-image p-4 mb-3"
+                            style="background-image: url(https://1.bp.blogspot.com/-IW8OiqJYe1c/YE0bk4-CfRI/AAAAAAAAFig/aH-WV6-3eaE9Fqf7GOkOrBLL008giPfZQCLcBGAsYHQ/s500-rw/newspaper.jpg);">
+                            <div class="headline-">
+                                <button class="btn btn-primary btn-sm mt-1">Business</button>
+                                <h5 class="news-headings mt-2"><a href="">#NotSoBar: How Kenyans defy curfew and
+                                        risk their
+                                        lives all for a drink</a>
+                                </h5>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card-image p-4 mb-3"
-                                style="background-image: url(https://1.bp.blogspot.com/-IW8OiqJYe1c/YE0bk4-CfRI/AAAAAAAAFig/aH-WV6-3eaE9Fqf7GOkOrBLL008giPfZQCLcBGAsYHQ/s500-rw/newspaper.jpg);">
-                                <div class="headline-">
-                                    <button class="btn btn-primary btn-sm mt-1">Business</button>
-                                    <h5 class="news-headings mt-2"><a href="">#NotSoBar: How Kenyans defy curfew and</a>
-                                    </h5>
-                                </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-image p-4 mb-3"
+                            style="background-image: url(https://1.bp.blogspot.com/-IW8OiqJYe1c/YE0bk4-CfRI/AAAAAAAAFig/aH-WV6-3eaE9Fqf7GOkOrBLL008giPfZQCLcBGAsYHQ/s500-rw/newspaper.jpg);">
+                            <div class="headline-">
+                                <button class="btn btn-primary btn-sm mt-1">Business</button>
+                                <h5 class="news-headings mt-2"><a href="">#NotSoBar: How Kenyans defy curfew and</a>
+                                </h5>
                             </div>
                         </div>
                     </div>
@@ -71,16 +60,32 @@
             </div>
         </div>
     </div>
+</div>
 
-    <!-- sources -->
-    <div class="sources m-2">
-        <div class="card p-2">
-            <h3 class="text-uppercase headings">news sources</h3>
-            <div class="row">
-                <div class="col-md-12">
-                   {{ macro.displayNewsSources(sources) }}
-                </div>
+<!-- sources -->
+<div class="sources m-2">
+    <div class="card p-2">
+        <h3 class="text-uppercase headings">news sources</h3>
+        <div class="row">
+            <div class="col-md-12">
+                {{ macro.displayNewsSources(sources) }}
             </div>
         </div>
     </div>
+</div>
+
+<!-- top  bbc news-->
+<div class="top-news m-2">
+    <h3 class="text-uppercase headings text-center mt-5 mb-4">top BBC News</h3>
+    <div class="row">
+        {{ macro.displayNewsSourceArticles(bbc_news) }}
+    </div>
+</div>
+<!-- Al Jazeera English News -->
+<div class="top-news m-2">
+    <h3 class="text-uppercase headings text-center mt-5 mb-4">top Al Jazeera English News</h3>
+    <div class="row">
+        {{ macro.displayNewsSourceArticles(aljazeera_english) }}
+    </div>
+</div>
 {% endblock %}

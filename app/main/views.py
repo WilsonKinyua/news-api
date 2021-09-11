@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from . import main
-from ..requests import get_source, get_articles, get_articles_bbc, get_articles_cnn, get_articles_google, get_articles_business
+from ..requests import get_source, get_articles, get_articles_bbc, get_articles_cnn, get_articles_google, get_articles_business,get_articles_sports
 # from ..models import Source, Article
 
 
@@ -55,4 +55,16 @@ def business():
     return render_template('business.html',
                            title=title,
                            business=business
+                           )
+
+@main.route('/sports')
+def sports():
+    '''
+    View sports page function that returns the sports page and its data
+    '''
+    sports = get_articles_sports()
+    title = 'Sports - Welcome to The best Hot News in the world'
+    return render_template('sports.html',
+                           title=title,
+                           sports=sports
                            )

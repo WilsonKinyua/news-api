@@ -76,8 +76,8 @@ a {
   border-radius: 5px;
 }
 
-.news-right .news-headings {
-  background-color: rgb(54, 52, 52);
+.homepage .news-headings {
+  background-color: #4e4e4e;
   border-radius: 10px;
   padding: 5px;
 }

@@ -5,7 +5,7 @@ import os
 # import news api source url from config.py
 
 # getting api key
-api_key = ''
+api_key = 'e05ca232a09f4c6394d6716dbcde7fef'
 # getting news base url
 base_url_source = None
 # getting news articles base url

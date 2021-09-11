@@ -145,3 +145,24 @@ footer .justify-content-center h5 a {
   font-size: 15px;
   color: white;
 }
+
+/* Tablet:768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+  footer h5 {
+    display: none;
+  }
+  footer p {
+    /* display the paragraph*/
+    display: block;
+  }
+}
+
+/* Mobile :320px. */
+@media (max-width: 767px) {
+  footer h5 {
+    display: none;
+  }
+  footer p {
+    display: block;
+  }
+}

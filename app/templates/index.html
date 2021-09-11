@@ -11,7 +11,7 @@
                 {% for bbc in bbc_home_picture %}
                 <div class="card-image p-4 mb-3" style="background-image: url(  {{bbc.urlToImage}}  );">
                     <div class="headline-text">
-                        <button class="btn btn-warning btn-sm mt-5">BBC</button>
+                        <button class="btn btn-warning btn-sm mt-5">BBC News</button>
                         <h4 class="news-headings mt-2"><a target="_blank" href="{{ bbc.url }}">{{ bbc.title }}</a>
                         </h4>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="col-md-6">
                         <div class="card-image p-4 mb-3" style="background-image: url({{cnn_news.urlToImage}});">
                             <div class="headline-">
-                                <button class="btn btn-primary btn-sm mt-1">CNN</button>
+                                <button class="btn btn-primary btn-sm mt-1">CNN News</button>
                                 <h5 class="news-headings mt-2"><a target="_blank"
                                         href="{{cnn_news.url}}">{{cnn_news.title}}</a>
                                 </h5>
@@ -34,28 +34,18 @@
                     {% endfor %}
                 </div>
                 <div class="row">
+                    {% for google in google %}
                     <div class="col-md-6">
-                        <div class="card-image p-4 mb-3"
-                            style="background-image: url(https://1.bp.blogspot.com/-IW8OiqJYe1c/YE0bk4-CfRI/AAAAAAAAFig/aH-WV6-3eaE9Fqf7GOkOrBLL008giPfZQCLcBGAsYHQ/s500-rw/newspaper.jpg);">
+                        <div class="card-image p-4 mb-3" style="background-image: url({{google.urlToImage}});">
                             <div class="headline-">
-                                <button class="btn btn-primary btn-sm mt-1">Business</button>
-                                <h5 class="news-headings mt-2"><a href="">#NotSoBar: How Kenyans defy curfew and
-                                        risk their
-                                        lives all for a drink</a>
+                                <button class="btn btn-primary btn-sm mt-1">Google News</button>
+                                <h5 class="news-headings mt-2"><a target="_blank" href="{{google.url}}">{{ google.title
+                                        }}</a>
                                 </h5>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card-image p-4 mb-3"
-                            style="background-image: url(https://1.bp.blogspot.com/-IW8OiqJYe1c/YE0bk4-CfRI/AAAAAAAAFig/aH-WV6-3eaE9Fqf7GOkOrBLL008giPfZQCLcBGAsYHQ/s500-rw/newspaper.jpg);">
-                            <div class="headline-">
-                                <button class="btn btn-primary btn-sm mt-1">Business</button>
-                                <h5 class="news-headings mt-2"><a href="">#NotSoBar: How Kenyans defy curfew and</a>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

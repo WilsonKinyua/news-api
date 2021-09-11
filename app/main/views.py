@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from . import main
-from ..requests import get_source, get_articles, get_articles_bbc, get_articles_cnn
+from ..requests import get_source, get_articles, get_articles_bbc, get_articles_cnn, get_articles_google
 # from ..models import Source, Article
 
 
@@ -19,8 +19,17 @@ def index():
     bbc_home_picture = get_articles_bbc()
     print(bbc_home_picture)
     cnn = get_articles_cnn()
-    title = 'Home - Welcome to The best News Highlighter'
-    return render_template('index.html', title=title, sources=sources, bbc_news=bbc_news, aljazeera_english=aljazeera_english, bbc_home_picture=bbc_home_picture, cnn=cnn)
+    google = get_articles_google()
+    title = 'Home - Welcome to The best Hot News in the world'
+    return render_template('index.html',
+                           title=title,
+                           sources=sources,
+                           bbc_news=bbc_news,
+                           aljazeera_english=aljazeera_english,
+                           bbc_home_picture=bbc_home_picture,
+                           cnn=cnn,
+                           google=google
+                           )
 
 
 @main.route('/source/articles/<source_id>')

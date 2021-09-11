@@ -76,6 +76,11 @@ a {
   border-radius: 5px;
 }
 
+.news-right .news-headings {
+  background-color: rgb(54, 52, 52);
+  border-radius: 10px;
+  padding: 5px;
+}
 .headline-text {
   margin-top: 200px;
   color: white;
@@ -97,6 +102,13 @@ a {
   height: 195px;
 }
 
+.news-right .news-headings a {
+  font-weight: 900;
+  color: #fff;
+}
+/* .news-right .card-image {
+  background-color: rgb(0, 0, 0);
+} */
 /* sources */
 .card {
   background: #fff none repeat scroll 0 0;

@@ -148,22 +148,23 @@ def get_articles_cnn():
             articles_results_list = get_articles_response['articles']
             articles_results = process_results_articles(articles_results_list)
     return articles_results  # return the results
-# get news by category
-# def get_news_by_category(category):
-#     '''
-#     Function that gets the json response to our url request
-#     '''
-#     # get_news_by_category_url = base_url_articles.format(category, api_key)
-#     get_news_by_category_url = 'https://newsapi.org/v2/top-headlines?country=us&category={}&apiKey=5c15b5d05c5d4f25b57112dbdbff3016'.format(category)
-#     # get_news_by_category_url = base_url_articles.format(category, api_key)
-#     with urllib.request.urlopen(get_news_by_category_url) as url:
-#         get_news_by_category_data = url.read()
-#         get_news_by_category_response = json.loads(get_news_by_category_data)
+# get google only two article
 
-#         news_by_category_results = None
 
-#         if get_news_by_category_response['articles']:
-#             news_by_category_results_list = get_news_by_category_response['articles']
-#             news_by_category_results = process_results_articles(news_by_category_results_list)
+def get_articles_google():
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=5c15b5d05c5d4f25b57112dbdbff3016&pageSize=2'
+    # get_articles_url = base_url_articles.format(source_id, api_key)
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        # load the data into a json object
+        get_articles_response = json.loads(get_articles_data)
 
-#     return news_by_category_results
+        articles_results = None
+
+        if get_articles_response['articles']:
+            articles_results_list = get_articles_response['articles']
+            articles_results = process_results_articles(articles_results_list)
+    return articles_results  # return the results

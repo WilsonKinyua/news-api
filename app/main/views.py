@@ -1,6 +1,6 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template
 from . import main
-from ..requests import get_source, get_articles, get_articles_bbc, get_articles_cnn, get_articles_google, get_articles_business,get_articles_science, get_articles_sports, get_articles_entertainment, get_articles_technology, get_articles_health, get_articles_health
+from ..requests import get_source, get_articles, get_articles_from_source, get_articles_depending_on_category
 
 
 @main.route('/')
@@ -11,14 +11,12 @@ def index():
     # Getting popular news sources
     sources = get_source()
     # get articles from bbc-news
-    bbc_news = get_articles('bbc-news')
+    bbc_news = get_articles_from_source('bbc-news', '8')
     # get articles from al-jazeera-english
-    aljazeera_english = get_articles('al-jazeera-english')
-    print(sources)
-    bbc_home_picture = get_articles_bbc()
-    print(bbc_home_picture)
-    cnn = get_articles_cnn()
-    google = get_articles_google()
+    aljazeera_english = get_articles_from_source('al-jazeera-english', '8')
+    bbc_home_picture = get_articles_from_source('bbc-news', '1')
+    cnn = get_articles_from_source('cnn', '2')
+    google = get_articles_from_source('google-news', '2')
     title = 'Home - Welcome to The best Hot News in the world'
     return render_template('index.html',
                            title=title,
@@ -49,7 +47,7 @@ def business():
     '''
     View business page function that returns the business page and its data
     '''
-    business = get_articles_business()
+    business = get_articles_depending_on_category('business')
     title = 'Business - Welcome to The best Hot News in the world'
     return render_template('business.html',
                            title=title,
@@ -62,7 +60,7 @@ def sports():
     '''
     View sports page function that returns the sports page and its data
     '''
-    sports = get_articles_sports()
+    sports = get_articles_depending_on_category('sports')
     title = 'Sports - Welcome to The best Hot News in the world'
     return render_template('sports.html',
                            title=title,
@@ -75,7 +73,7 @@ def entertainment():
     '''
     View entertainment page function that returns the entertainment page and its data
     '''
-    entertainment = get_articles_entertainment()
+    entertainment = get_articles_depending_on_category('entertainment')
     title = 'Entertainment - Welcome to The best Hot News in the world'
     return render_template('entertainment.html',
                            title=title,
@@ -88,7 +86,7 @@ def technology():
     '''
     View technology page function that returns the technology page and its data
     '''
-    technology = get_articles_technology()
+    technology = get_articles_depending_on_category('technology')
     title = 'Technology - Welcome to The best Hot News in the world'
     return render_template('technology.html',
                            title=title,
@@ -101,7 +99,7 @@ def health():
     '''
     View health page function that returns the health page and its data
     '''
-    health = get_articles_science()
+    health = get_articles_depending_on_category('health')
     title = 'Health - Welcome to The best Hot News in the world'
     return render_template('health.html',
                            title=title,
@@ -114,7 +112,7 @@ def science():
     '''
     View science page function that returns the science page and its data
     '''
-    science = get_articles_health()
+    science = get_articles_depending_on_category('science')
     title = 'Science - Welcome to The best Hot News in the world'
     return render_template('science.html',
                            title=title,

@@ -1,9 +1,11 @@
 import urllib.request
 import json
 from .models import Sources, Articles
+import os
+# import news api source url from config.py
 
 # getting api key
-api_key = None
+api_key = os.environ.get('NEWS_API_KEY')
 # getting news base url
 base_url_source = None
 # getting news articles base url
@@ -72,7 +74,10 @@ def get_source():  # function to get the source
     '''
     Function that gets the json response to our url request
     '''
-    get_source_url = 'https://newsapi.org/v2/sources?apiKey=6f85e6e6e62f4c21862d928741e7e22a'
+    # get api key from the config file
+    # get_source_url = base_url_source.format('api_key')
+    get_source_url = 'https://newsapi.org/v2/sources?apiKey={}'.format(api_key)
+    print(get_source_url)
 
     with urllib.request.urlopen(get_source_url) as url:
         get_source_data = url.read()
@@ -93,8 +98,8 @@ def get_articles(source_id):
     Function that gets the json response to our url request
     '''
     # get_articles_url = base_url_articles.format(source_id, api_key)
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=6f85e6e6e62f4c21862d928741e7e22a'.format(
-        source_id)
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(
+        source_id, api_key)
     # get_articles_url = base_url_articles.format(source_id, api_key)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -109,12 +114,14 @@ def get_articles(source_id):
     return articles_results  # return the results
 
 
-# get bbc only one article
-def get_articles_bbc():
+# get news relating to specific source and page size
+
+def get_articles_from_source(source, pageSize):
     '''
     Function that gets the json response to our url request
     '''
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=6f85e6e6e62f4c21862d928741e7e22a&pageSize=1'
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}&pageSize={}'.format(source,
+                                                                                                      api_key, pageSize)
     # get_articles_url = base_url_articles.format(source_id, api_key)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -128,153 +135,15 @@ def get_articles_bbc():
             articles_results = process_results_articles(articles_results_list)
     return articles_results  # return the results
 
-# get cnn only two article
+# get news depending on category
 
 
-def get_articles_cnn():
+def get_articles_depending_on_category(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=6f85e6e6e62f4c21862d928741e7e22a&pageSize=2'
-    # get_articles_url = base_url_articles.format(source_id, api_key)
-    with urllib.request.urlopen(get_articles_url) as url:
-        get_articles_data = url.read()
-        # load the data into a json object
-        get_articles_response = json.loads(get_articles_data)
-
-        articles_results = None
-
-        if get_articles_response['articles']:
-            articles_results_list = get_articles_response['articles']
-            articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
-# get google only two article
-
-
-def get_articles_google():
-    '''
-    Function that gets the json response to our url request
-    '''
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=6f85e6e6e62f4c21862d928741e7e22a&pageSize=2'
-    # get_articles_url = base_url_articles.format(source_id, api_key)
-    with urllib.request.urlopen(get_articles_url) as url:
-        get_articles_data = url.read()
-        # load the data into a json object
-        get_articles_response = json.loads(get_articles_data)
-
-        articles_results = None
-
-        if get_articles_response['articles']:
-            articles_results_list = get_articles_response['articles']
-            articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
-
-# get business category news
-
-
-def get_articles_business():
-    '''
-    Function that gets the json response to our url request
-    '''
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?category=business&apiKey=6f85e6e6e62f4c21862d928741e7e22a'
-    # get_articles_url = base_url_articles.format(source_id, api_key)
-    with urllib.request.urlopen(get_articles_url) as url:
-        get_articles_data = url.read()
-        # load the data into a json object
-        get_articles_response = json.loads(get_articles_data)
-
-        articles_results = None
-
-        if get_articles_response['articles']:
-            articles_results_list = get_articles_response['articles']
-            articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
-
-# get sports category news
-
-
-def get_articles_sports():
-    '''
-    Function that gets the json response to our url request
-    '''
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?category=sports&apiKey=6f85e6e6e62f4c21862d928741e7e22a'
-    # get_articles_url = base_url_articles.format(source_id, api_key)
-    with urllib.request.urlopen(get_articles_url) as url:
-        get_articles_data = url.read()
-        # load the data into a json object
-        get_articles_response = json.loads(get_articles_data)
-
-        articles_results = None
-
-        if get_articles_response['articles']:
-            articles_results_list = get_articles_response['articles']
-            articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
-
-
-# get entertainment category news
-def get_articles_entertainment():
-    '''
-    Function that gets the json response to our url request
-    '''
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?category=entertainment&apiKey=6f85e6e6e62f4c21862d928741e7e22a'
-    # get_articles_url = base_url_articles.format(source_id, api_key)
-    with urllib.request.urlopen(get_articles_url) as url:
-        get_articles_data = url.read()
-        # load the data into a json object
-        get_articles_response = json.loads(get_articles_data)
-
-        articles_results = None
-
-        if get_articles_response['articles']:
-            articles_results_list = get_articles_response['articles']
-            articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
-
-
-def get_articles_technology():
-    '''
-    Function that gets the json response to our url request
-    '''
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?category=technology&apiKey=6f85e6e6e62f4c21862d928741e7e22a'
-    # get_articles_url = base_url_articles.format(source_id, api_key)
-    with urllib.request.urlopen(get_articles_url) as url:
-        get_articles_data = url.read()
-        # load the data into a json object
-        get_articles_response = json.loads(get_articles_data)
-
-        articles_results = None
-
-        if get_articles_response['articles']:
-            articles_results_list = get_articles_response['articles']
-            articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
-
-
-def get_articles_science():
-    '''
-    Function that gets the json response to our url request
-    '''
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?category=science&apiKey=6f85e6e6e62f4c21862d928741e7e22a'
-    # get_articles_url = base_url_articles.format(source_id, api_key)
-    with urllib.request.urlopen(get_articles_url) as url:
-        get_articles_data = url.read()
-        # load the data into a json object
-        get_articles_response = json.loads(get_articles_data)
-
-        articles_results = None
-
-        if get_articles_response['articles']:
-            articles_results_list = get_articles_response['articles']
-            articles_results = process_results_articles(articles_results_list)
-    return articles_results  # return the results
-
-
-def get_articles_health():
-    '''
-    Function that gets the json response to our url request
-    '''
-    get_articles_url = 'https://newsapi.org/v2/top-headlines?category=health&apiKey=6f85e6e6e62f4c21862d928741e7e22a'
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?category={}&apiKey={}'.format(
+        category, api_key)
     # get_articles_url = base_url_articles.format(source_id, api_key)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
